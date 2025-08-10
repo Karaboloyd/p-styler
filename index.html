@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P-Styler Portfolio</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #0b1e3b;
+        color: white;
+    }
+
+    /* NAVIGATION BAR */
+    nav {
+        background-color: #071229;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+    nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 15px;
+        font-weight: bold;
+        font-size: 1rem;
+        transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+    nav a:hover {
+        color: #00acee;
+        text-shadow: 0 0 8px #00acee;
+    }
+
+    header {
+        text-align: center;
+        padding: 30px 20px;
+    }
+    header img {
+        width: 160px;
+        height: 160px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 5px solid white;
+        box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.3);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    header img:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 0px 25px rgba(255, 255, 255, 0.6);
+    }
+    header h1 {
+        margin: 15px 0 5px;
+        font-size: 2.5rem;
+        transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+    header h1:hover {
+        color: #00acee;
+        text-shadow: 0 0 10px #00acee;
+        cursor: pointer;
+    }
+    header h2 {
+        font-weight: normal;
+        font-size: 1.3rem;
+        color: #ddd;
+        transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+    header h2:hover {
+        color: #00acee;
+        text-shadow: 0 0 10px #00acee;
+        cursor: pointer;
+    }
+
+    section {
+        max-width: 900px;
+        margin: auto;
+        padding: 30px 20px;
+    }
+    h3 {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 20px;
+        border-bottom: 2px solid white;
+        display: inline-block;
+        padding-bottom: 5px;
+        transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+    h3:hover {
+        color: #00acee;
+        text-shadow: 0 0 10px #00acee;
+        cursor: pointer;
+    }
+    .about {
+        text-align: center;
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+    /* Music section */
+    .music {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+    .album {
+        background: white;
+        color: #0b1e3b;
+        border-radius: 10px;
+        padding: 15px;
+        width: 250px;
+        text-align: center;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .album img {
+        width: 100%;
+        border-radius: 10px;
+    }
+    .album:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 0px 25px rgba(255, 255, 255, 0.4);
+    }
+
+    .socials {
+        text-align: center;
+        margin-top: 30px;
+        flex-wrap: wrap;
+    }
+    .socials a {
+        color: white;
+        font-size: 1.8rem;
+        margin: 0 10px;
+        transition: color 0.3s ease;
+    }
+    .socials a:hover {
+        color: #00acee;
+    }
+
+    button#musicToggle {
+        display: block;
+        margin: 25px auto 15px;
+        padding: 10px 20px;
+        font-size: 1rem;
+        background-color: #00acee;
+        border: none;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    button#musicToggle:hover {
+        background-color: #008bb5;
+    }
+
+    /* KDC logo at bottom */
+    .kdc-section {
+        text-align: center;
+        padding: 15px 0;
+    }
+    .kdc-section img {
+        max-width: 140px;
+        height: auto;
+        border-radius: 20px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .kdc-section img:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 0px 20px rgba(255,255,255,0.5);
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        background: #071229;
+        font-size: 0.9rem;
+        margin-top: 20px;
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 768px) {
+        nav {
+            flex-wrap: wrap;
+        }
+        header h1 {
+            font-size: 2rem;
+        }
+        header h2 {
+            font-size: 1rem;
+        }
+        .album {
+            width: 45%;
+        }
+    }
+    @media (max-width: 500px) {
+        .album {
+            width: 100%;
+        }
+        .socials a {
+            font-size: 1.5rem;
+            margin: 5px;
+        }
+        section {
+            padding: 20px 10px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION BAR -->
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">About Me</a>
+    <a href="#music">My Music</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<header id="home">
+    <img src="images/pstyler.jpg" alt="P-Styler">
+    <h1>Puseletso</h1>
+    <h2>Stage Name: P-Styler</h2>
+</header>
+
+<section id="about">
+    <h3>About Me</h3>
+    <p class="about">
+        I am P-Styler, a passionate rapper and songwriter bringing raw lyrics and unique beats to the world.
+        My music blends modern trap vibes with authentic storytelling.
+        Welcome to my official portfolio.
+    </p>
+</section>
+
+<section id="music">
+    <h3>My Music</h3>
+    <div class="music">
+        <div class="album">
+            <img src="images/Album 1.jpg" alt="Album 1">
+            <h4>THE CLINCH</h4>
+            <p>
+
+
+Clinch is more than just an album - it's a mindset. With gritty hip hop beats and lyrics that reflect my journey, I'm proving that with determination and heart, you can clinch victory no matter what life throws at you</p>
+        </div>
+        <div class="album">
+            <img src="images/Album 2.jpg" alt="Album 2">
+            <h4>TOXIC</h4>
+            <p>Toxic' is a hip hop anthem about acknowledging the pain I've caused and the heartbreak I've endured. This track is a step towards growth, self-awareness, and healing - and a reminder that we all have work to do on ourselves.</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <h3>Contact Me</h3>
+    <div class="socials">
+        <a href="https://open.spotify.com/artist/4VAs4LLnmRY4PJp2WrK538?si=4kfTqfAqTlO3iv_vUwR-1w" target="_blank"><i class="fab fa-spotify"></i></a>
+        <a href="https://youtube.com/@p.styler?si=lzy7HrX-_IW9LDF3" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.facebook.com/share/1B3W3pyFRq/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.tiktok.com/@styler_p?_t=ZS-8yjmED7NfaD&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/27789451141" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/p_styler.sa?igsh=MTVvYzRrcDV2NjB4cg%3D%3D&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+</section>
+
+<!-- Mute/Unmute Button -->
+<button id="musicToggle">🔊 Mute</button>
+
+<!-- KDC Logo Below Music Button -->
+<div class="kdc-section">
+    <img src="images/logo.jpg" alt="KDC Logo">
+</div>
+
+<footer>
+    &copy; 2025 P-Styler. All Rights Reserved.
+</footer>
+
+<script>
+// Background music setup
+const bgMusic = new Audio('audio/track.mp3');
+bgMusic.loop = true;
+bgMusic.volume = 1;
+
+bgMusic.play().then(() => {
+    document.getElementById('musicToggle').innerText = "🔊 Mute";
+}).catch(() => {
+    document.getElementById('musicToggle').innerText = "🔈 Play";
+});
+
+document.getElementById('musicToggle').addEventListener('click', () => {
+    if (bgMusic.paused) {
+        bgMusic.play();
+        document.getElementById('musicToggle').innerText = "🔊 Mute";
+    } else {
+        bgMusic.pause();
+        document.getElementById('musicToggle').innerText = "🔈 Play";
+    }
+});
+
+// Smooth scrolling for nav links
+document.querySelectorAll('nav a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 60, // offset for sticky nav
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+
+</script>
+</body>
+</html>
